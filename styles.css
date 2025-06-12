@@ -1,6 +1,107 @@
+:root {
+  --primary-color: #5b21b6;
+  --secondary-color: #1e3a8a;
+  --background-color: #1e1f3d;
+  --text-color: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Roboto, Arial, sans-serif;
 }
+
+body {
+  background: linear-gradient(
+    to bottom right,
+    var(--background-color),
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* Start Screen */
+#start-screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#start-screen h1 {
+  font-size: 7rem;
+  line-height: 0.8;
+  text-align: center;
+  font-weight: 900;
+  text-shadow: 1px 1px 20px #41414190;
+}
+
+#start-screen .hands {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+#start-screen .hands > img {
+  position: absolute;
+  width: 15%;
+}
+
+#start-screen .hands > img.sissors-hand {
+  --hand-rotation: 120deg;
+  top: -30rem;
+  left: 0;
+  animation: bounce-vertical 2s infinite ease-in-out;
+}
+
+#start-screen .hands > img.rock-hand {
+  --hand-rotation: -60deg;
+  bottom: -25rem;
+  right: 0;
+  animation: bounce-vertical 2s infinite ease-in-out;
+}
+
+#start-screen > button {
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: #6f36cc;
+  opacity: 0.9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  z-index: 1;
+}
+
+#start-screen > button:hover {
+  background-color: #844dde;
+  transform: scale(1.05);
+}
+
+/* End Start Screen */
+
+/* Animations */
+@keyframes bounce-vertical {
+  0% {
+    transform: rotate(var(--hand-rotation, 0deg)) translateY(0);
+  }
+  50% {
+    transform: rotate(var(--hand-rotation, 0deg)) translateY(-10px);
+  }
+  100% {
+    transform: rotate(var(--hand-rotation, 0deg)) translateY(0);
+  }
+}
+/*End Animations*/
