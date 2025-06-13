@@ -22,15 +22,60 @@
   </head>
   <body>
     <main>
-      <div id="start-screen">
+      <div class="screen" id="start-screen">
         <div class="hands">
           <img src="assets/hands/rock.png" alt="Rock hand" class="rock-hand" />
-          <img src="assets/hands/sissors.png" alt="Sissors hand" class="sissors-hand" />
+          <img
+            src="assets/hands/sissors.png"
+            alt="Sissors hand"
+            class="sissors-hand"
+          />
         </div>
-        <h1>ROCK</br>PAPER</br>SISSORS</h1>
-        <button>Play Now</button>
+        <h1>ROCK<br />PAPER<br />SISSORS</h1>
+        <button id="play-button">Play Now</button>
         <p style="opacity: 0.5">Press PLAY to start the epic battle</p>
       </div>
+
+      <div class="screen" id="game-screen">
+        <div class="grid-cards">
+          <div class="victory-card">
+            <p>0</p>
+            <p>VICTORIAS</p>
+          </div>
+          <div class="level-card">
+            <p>NOVATO</p>
+            <p>NIVEL 1</p>
+          </div>
+          <div class="bot-card">
+            <p>0</p>
+            <p>BOT</p>
+          </div>
+        </div>
+
+        <div class="board">
+          <div id="player-hand">
+            <img src="assets/hands/rock.png" alt="Rock hand" />
+          </div>
+          <p>VS</p>
+          <div id="bot-hand">
+            <img src="assets/hands/sissors.png" alt="Sissors hand" />
+          </div>
+        </div>
+
+        <div class="message">YOU WIN</div>
+
+        <div class="buttons">
+          <button id="play-again" class="button">Play Again</button>
+          <button id="exit-game" class="button">Exit Game</button>
+        </div>
+
+        <div class="hands-game">
+          <img src="assets/hands/rock.png" alt="Rock hand" />
+          <img src="assets/hands/paper.png" alt="Paper hand" />
+          <img src="assets/hands/sissors.png" alt="Sissors hand" />
+        </div>
+      </div>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>

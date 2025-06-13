@@ -21,24 +21,56 @@ body {
   );
   color: var(--text-color);
   background-color: var(--background-color);
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
 }
 
-/* Start Screen */
-#start-screen {
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+button {
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: #6f36cc;
+  opacity: 0.9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  z-index: 1;
+}
+
+button:hover {
+  background-color: #844dde;
+  transform: scale(1.05);
+}
+
+.screen {
   width: 100vw;
   height: 100vh;
-  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
 }
 
+/* Start Screen */
+#start-screen {
+  display: flex;
+}
 #start-screen h1 {
   font-size: 7rem;
   line-height: 0.8;
   text-align: center;
-  font-weight: 900;
+  font-weight: bold;
   text-shadow: 1px 1px 20px #41414190;
 }
 
@@ -56,6 +88,7 @@ body {
 
 #start-screen .hands > img.sissors-hand {
   --hand-rotation: 120deg;
+  --hand-mirror: -1;
   top: -30rem;
   left: 0;
   animation: bounce-vertical 2s infinite ease-in-out;
@@ -67,41 +100,168 @@ body {
   right: 0;
   animation: bounce-vertical 2s infinite ease-in-out;
 }
+/* End Start Screen */
 
-#start-screen > button {
-  padding: 1rem 2rem;
-  font-size: 2rem;
+/* Game Screen */
+#game-screen {
+  display: none;
+  justify-content: space-between;
+  padding: 6rem 0;
+}
+
+#game-screen .hands-game {
+  height: 100%;
+  display: flex;
+  gap: 4rem;
+  overflow: hidden;
+}
+
+#game-screen .grid-cards {
+  width: 50%;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+}
+
+#game-screen .grid-cards > div {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  border: 0.5px solid var(--card-color, #ffffff);
+  border-radius: 1rem;
+  background-color: var(--card-background, #ffffff30);
+}
+
+#game-screen .grid-cards > div.victory-card {
+  --card-color: #1e40af;
+  --card-background: #1e40af30;
+}
+
+#game-screen .grid-cards > div.level-card {
+  --card-color: #9333ea;
+  --card-background: #9333ea30;
+}
+
+#game-screen .grid-cards > div.bot-card {
+  --card-color: #991b1b;
+  --card-background: #991b1b30;
+}
+
+#game-screen .grid-cards > div > p {
+  font-size: 14px;
+}
+
+#game-screen .grid-cards > div > p:first-child {
+  font-size: 1.5rem;
   font-weight: bold;
-  color: var(--text-color);
-  background-color: #6f36cc;
-  opacity: 0.9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
+  color: var(--main-text-color, #ffffff);
+  margin-bottom: 5px;
+}
+
+#game-screen .grid-cards > div.victory-card > p:first-child {
+  --main-text-color: #60a5fa;
+}
+
+#game-screen .grid-cards > div.level-card > p:first-child {
+  --main-text-color: #c084fc;
+}
+
+#game-screen .grid-cards > div.bot-card > p:first-child {
+  --main-text-color: #f87171;
+}
+
+#game-screen .board {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 1;
 }
 
-#start-screen > button:hover {
-  background-color: #844dde;
-  transform: scale(1.05);
+#game-screen .board > p {
+  font-size: 10rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 20px #60a5fa;
+  animation: bounce-vertical 2s infinite ease-in-out;
 }
 
-/* End Start Screen */
+#game-screen .board img {
+  width: 12rem;
+}
+
+#player-hand,
+#bot-hand {
+  height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#player-hand {
+  transform: translateX(-33rem);
+}
+
+#bot-hand {
+  transform: translateX(33rem);
+}
+
+#player-hand img {
+  transform: rotate(90deg) scaleX(-1);
+}
+
+#bot-hand img {
+  transform: rotate(-90deg);
+}
+
+#game-screen .message {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  font-size: 21vw;
+  font-weight: bold;
+  opacity: 0.1;
+  text-align: center;
+  width: 100%;
+}
+
+#game-screen .buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+#game-screen .hands-game {
+  position: absolute;
+  bottom: 0;
+}
+
+#game-screen .hands-game > img {
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(32rem);
+  cursor: pointer;
+}
+
+#game-screen .hands-game > img:hover {
+  transform: translateY(28rem);
+}
+/* End Game Screen */
 
 /* Animations */
 @keyframes bounce-vertical {
   0% {
-    transform: rotate(var(--hand-rotation, 0deg)) translateY(0);
+    transform: rotate(var(--hand-rotation, 0deg)) translateY(0)
+      scaleX(var(--hand-mirror, 1));
   }
   50% {
-    transform: rotate(var(--hand-rotation, 0deg)) translateY(-10px);
+    transform: rotate(var(--hand-rotation, 0deg)) translateY(-10px)
+      scaleX(var(--hand-mirror, 1));
   }
   100% {
-    transform: rotate(var(--hand-rotation, 0deg)) translateY(0);
+    transform: rotate(var(--hand-rotation, 0deg)) translateY(0)
+      scaleX(var(--hand-mirror, 1));
   }
 }
 /*End Animations*/
