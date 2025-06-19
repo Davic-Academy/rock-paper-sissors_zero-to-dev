@@ -4,7 +4,7 @@
     <!-- Meta -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock | Paper | Sissors</title>
+    <title>Rock | Paper | Scissors</title>
     <!-- End Meta -->
 
     <!-- Fonts -->
@@ -26,9 +26,9 @@
         <div class="hands">
           <img src="assets/hands/rock.png" alt="Rock hand" class="rock-hand" />
           <img
-            src="assets/hands/sissors.png"
-            alt="Sissors hand"
-            class="sissors-hand"
+            src="assets/hands/scissors.png"
+            alt="Scissors hand"
+            class="scissors-hand"
           />
         </div>
         <h1>ROCK<br />PAPER<br />SISSORS</h1>
@@ -39,40 +39,43 @@
       <div class="screen" id="game-screen">
         <div class="grid-cards">
           <div class="victory-card">
-            <p>0</p>
+            <p id="player-score">0</p>
             <p>VICTORIAS</p>
           </div>
           <div class="level-card">
-            <p>NOVATO</p>
-            <p>NIVEL 1</p>
+            <p id="player-level"></p>
           </div>
           <div class="bot-card">
-            <p>0</p>
+            <p id="bot-score">0</p>
             <p>BOT</p>
           </div>
         </div>
 
         <div class="board">
-          <div id="player-hand">
-            <img src="assets/hands/rock.png" alt="Rock hand" />
+          <div class="player">
+            <img id="player-hand" alt="player's choise" />
           </div>
           <p>VS</p>
-          <div id="bot-hand">
-            <img src="assets/hands/sissors.png" alt="Sissors hand" />
+          <div class="bot">
+            <img id="bot-hand" alt="Scissors hand" />
           </div>
         </div>
 
-        <div class="message">YOU WIN</div>
+        <div class="message"></div>
 
         <div class="buttons">
-          <button id="play-again" class="button">Play Again</button>
-          <button id="exit-game" class="button">Exit Game</button>
+          <button id="restart-button" class="button">Play Again</button>
+          <button id="exit-button" class="button">Exit Game</button>
         </div>
 
         <div class="hands-game">
-          <img src="assets/hands/rock.png" alt="Rock hand" />
-          <img src="assets/hands/paper.png" alt="Paper hand" />
-          <img src="assets/hands/sissors.png" alt="Sissors hand" />
+          <img id="rock" src="assets/hands/rock.png" alt="Rock hand" />
+          <img id="paper" src="assets/hands/paper.png" alt="Paper hand" />
+          <img
+            id="scissors"
+            src="assets/hands/scissors.png"
+            alt="Scissors hand"
+          />
         </div>
       </div>
     </main>

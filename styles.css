@@ -28,7 +28,6 @@ body {
 
 img {
   -webkit-user-drag: none;
-  user-drag: none;
 }
 
 button {
@@ -86,7 +85,7 @@ button:hover {
   width: 15%;
 }
 
-#start-screen .hands > img.sissors-hand {
+#start-screen .hands > img.scissors-hand {
   --hand-rotation: 120deg;
   --hand-mirror: -1;
   top: -30rem;
@@ -139,6 +138,9 @@ button:hover {
 }
 
 #game-screen .grid-cards > div.level-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   --card-color: #9333ea;
   --card-background: #9333ea30;
 }
@@ -163,7 +165,8 @@ button:hover {
   --main-text-color: #60a5fa;
 }
 
-#game-screen .grid-cards > div.level-card > p:first-child {
+#game-screen .grid-cards > div.level-card > p {
+  margin: 0;
   --main-text-color: #c084fc;
 }
 
@@ -189,39 +192,36 @@ button:hover {
   animation: bounce-vertical 2s infinite ease-in-out;
 }
 
-#game-screen .board img {
-  width: 12rem;
+#game-screen .board div.player{
+  transform: rotate(90deg) scaleX(-1);
+}
+
+#game-screen .board div.bot{
+  transform: rotate(-90deg);
 }
 
 #player-hand,
 #bot-hand {
-  height: 12rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 50rem;   /* Ajusta este valor según el tamaño que prefieras */
+  height: 50rem;  /* Ajusta este valor según el tamaño que prefieras */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 #player-hand {
-  transform: translateX(-33rem);
+  transform: translateY(10rem);
 }
 
 #bot-hand {
-  transform: translateX(33rem);
-}
-
-#player-hand img {
-  transform: rotate(90deg) scaleX(-1);
-}
-
-#bot-hand img {
-  transform: rotate(-90deg);
+  transform: translateY(10rem);
 }
 
 #game-screen .message {
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
-  font-size: 21vw;
+  font-size: 18vw;
   font-weight: bold;
   opacity: 0.1;
   text-align: center;
@@ -229,6 +229,7 @@ button:hover {
 }
 
 #game-screen .buttons {
+  z-index: 2;
   display: flex;
   gap: 2rem;
 }
